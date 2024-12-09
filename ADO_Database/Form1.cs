@@ -21,5 +21,10 @@ namespace ADO_Database
         {
 
         }
+
+        private void resultListBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
