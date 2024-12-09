@@ -49,7 +49,6 @@
             this.infolable.TabIndex = 0;
             this.infolable.Text = "Requirement: Current Version of SQL EXPRESS on yout local machine";
             this.infolable.TextAlign = System.Drawing.ContentAlignment.TopCenter;
-            this.infolable.Click += new System.EventHandler(this.label1_Click);
             // 
             // getDataButton
             // 
@@ -94,7 +93,7 @@
             this.mileAgeTextBox.ReadOnly = true;
             this.mileAgeTextBox.Size = new System.Drawing.Size(136, 20);
             this.mileAgeTextBox.TabIndex = 5;
-            this.mileAgeTextBox.TextChanged += new System.EventHandler(this.textBox1_TextChanged);
+            
             // 
             // label1
             // 
@@ -105,7 +104,7 @@
             this.label1.Size = new System.Drawing.Size(103, 13);
             this.label1.TabIndex = 6;
             this.label1.Text = "Selected Vehicle";
-            this.label1.Click += new System.EventHandler(this.label1_Click_1);
+            
             // 
             // label2
             // 
@@ -116,7 +115,7 @@
             this.label2.Size = new System.Drawing.Size(95, 13);
             this.label2.TabIndex = 7;
             this.label2.Text = "Average Milage";
-            this.label2.Click += new System.EventHandler(this.label2_Click_1);
+            
             // 
             // addCar
             // 
@@ -127,6 +126,7 @@
             this.addCar.TabIndex = 8;
             this.addCar.Text = "Add Car";
             this.addCar.UseVisualStyleBackColor = true;
+            this.addCar.Click += new System.EventHandler(this.addCar_Click);
             // 
             // MainForm
             // 
