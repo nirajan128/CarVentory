@@ -45,5 +45,44 @@ ex.Message;
         {
 
         }
+
+        private void getDataButton_Click(object sender, EventArgs e)
+        {
+            //Clear any contents in the List box
+            resultListBox.Items.Clear();
+
+            try
+            {
+                //A new instance of sql command, takes two param, first is the query and second is the Sql COnnection
+                SqlCommand command = new SqlCommand("SELECT * FROM CARS", Connection);
+
+                // Create new SqlDataReader object and read data from the command.This will be an array
+                SqlDataReader reader = command.ExecuteReader();
+
+                //While there is another record present
+                while (reader.Read())
+                {
+                    string output = "";
+                    for (int i = 0; i < reader.FieldCount; i++)
+                    { //field count counts the row of data in reader
+                        output += String.Format("{0,-10} | ", reader[i]); //add each formatted data to the output string variable
+                    }
+
+                    resultListBox.Items.Add(output);
+                }
+
+                //successMessage
+                statusLable.Text = "Database selected successfully";
+
+                //Close the reader
+                reader.Close();
+            }
+            catch (Exception ex) {
+                statusLable.Text = "Database operation failed: " + ex.Message;
+            }
+
+
+
+        }
     }
 }

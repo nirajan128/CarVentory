@@ -55,6 +55,7 @@
             this.getDataButton.TabIndex = 1;
             this.getDataButton.Text = "Get Car Data";
             this.getDataButton.UseVisualStyleBackColor = true;
+            this.getDataButton.Click += new System.EventHandler(this.getDataButton_Click);
             // 
             // resultListBox
             // 
