@@ -40,9 +40,9 @@
             this.infolable.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.infolable.Location = new System.Drawing.Point(29, 18);
             this.infolable.Name = "infolable";
-            this.infolable.Size = new System.Drawing.Size(513, 20);
+            this.infolable.Size = new System.Drawing.Size(576, 20);
             this.infolable.TabIndex = 0;
-            this.infolable.Text = "Requirement: Current Version of MYSQL on yout local machine";
+            this.infolable.Text = "Requirement: Current Version of SQL EXPRESS on yout local machine";
             this.infolable.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             this.infolable.Click += new System.EventHandler(this.label1_Click);
             // 
