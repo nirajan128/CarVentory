@@ -43,7 +43,37 @@ ex.Message;
 
         private void resultListBox_SelectedIndexChanged(object sender, EventArgs e)
         {
+            if (resultListBox.Items.Count > 0) {
 
+                try
+                {
+                    // Extract the selected row's vehicle ID
+                    string selectedRow = resultListBox.SelectedItem.ToString();
+                    string[] fields = selectedRow.Split('|'); // Split the row into fields
+                    int carId = int.Parse(fields[0].Trim()); // Assuming ID is the first column
+
+                    SqlCommand command = new SqlCommand(@"SELECT AVG(CAST(gasused AS FLOAT) / (endkm - startkm) * 100) AS AverageMileage
+                  FROM MILEAGE
+                  WHERE car_id = @carId",
+                    Connection);
+
+                    command.Parameters.AddWithValue("@carId", carId); // Add parameter to prevent SQL injection
+
+                    // Execute the query - ExecuteScalr is used to get single value
+                    object result = command.ExecuteScalar();
+
+                    vehicleTextBox.Text = fields[1].Trim();
+                    if (result != null) { 
+                        mileAgeTextBox.Text = Math.Round((double)result, 2).ToString();
+                    }
+                }
+                catch (Exception ex)
+                {
+                    statusLable.Text = "Error fetching average mileage: " + ex.Message;
+                }
+               
+
+            }
         }
 
         private void getDataButton_Click(object sender, EventArgs e)
@@ -82,6 +112,26 @@ ex.Message;
             }
 
 
+
+        }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label1_Click_1(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void label2_Click_1(object sender, EventArgs e)
+        {
 
         }
     }
